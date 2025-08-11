@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Internet permission required for WebView to load YouTube -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    
+    <!-- Allow cleartext traffic for HTTP connections (YouTube uses HTTPS but this ensures compatibility) -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.YouTubeWebViewApp"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        
+        <!-- Main Activity with full-screen theme and hardware acceleration enabled -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.YouTubeWebViewApp.FullScreen"
+            android:hardwareAccelerated="true"
+            android:configChanges="orientation|screenSize|keyboardHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            
+            <!-- Handle YouTube URLs if the app is set as default browser -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https"
+                    android:host="youtube.com" />
+                <data android:scheme="https"
+                    android:host="www.youtube.com" />
+                <data android:scheme="https"
+                    android:host="m.youtube.com" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
