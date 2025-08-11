@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">YouTube WebView</string>
+    <string name="loading">Loading YouTube...</string>
+    <string name="error_loading">Error loading YouTube. Please check your internet connection.</string>
+</resources>

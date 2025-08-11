@@ -1,0 +1,7 @@
+# Placeholder for ic_launcher.png
+# Replace this file with actual app icon (48x48 dp for mdpi)
+# You can generate icons using Android Studio's Image Asset Studio:
+# Right-click res -> New -> Image Asset -> Launcher Icons (Adaptive and Legacy)
+
+# For now, you can use Android Studio's default launcher icon or create your own
+# The app will still compile and run without custom icons
